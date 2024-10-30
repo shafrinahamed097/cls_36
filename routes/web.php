@@ -40,8 +40,8 @@ Route::get("/PolicyByType/{type}",[PolicyController::class,'PolicyByType']);
 
 
 // UserAuth
-Route::get('/userLogin/{UserEmail}', [UserController::class, 'userLogin']);
-Route::get('/VerifyLogin/{OTP}', [UserController::class, 'VerifyLogin']);
+Route::get('/UserLogin/{UserEmail}', [UserController::class, 'UserLogin']);
+Route::get('/VerifyLogin/{UserEmail}/{OTP}', [UserController::class, 'VerifyLogin']);
 
 Route::get('/logout', [UserController::class, 'UserLogout']);
 
