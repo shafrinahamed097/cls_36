@@ -21,7 +21,7 @@ use App\Http\Middleware\TokenAuthenticate;
 
 
 
-
+// Brand List 
 Route::get('/BrandList', [BrandController::class, 'BrandList']);
 // Category List
 Route::get('/CategoryList', [CategoryController::class, 'CategoryList']);
@@ -37,6 +37,13 @@ Route::get('/ListReviewByProduct/{product_id}', [ProductController::class, 'List
 //policy
 Route::get("/PolicyByType/{type}",[PolicyController::class,'PolicyByType']);
 
+
+
+// UserAuth
+Route::get('/userLogin/{UserEmail}', [UserController::class, 'userLogin']);
+Route::get('/VerifyLogin/{OTP}', [UserController::class, 'VerifyLogin']);
+
+Route::get('/logout', [UserController::class, 'UserLogout']);
 
 
 
