@@ -70,23 +70,23 @@ class ProductController extends Controller
 
 
 
-    // public function CreateProductReview(Request $request):JsonResponse{
-    //     $user_id=$request->header('id');
-    //     $profile=CustomerProfile::where('user_id',$user_id)->first();
+    public function CreateProductReview(Request $request):JsonResponse{
+        $user_id=$request->header('id');
+        $profile=CustomerProfile::where('user_id',$user_id)->first();
 
-    //     if($profile){
-    //         $request->merge(['customer_id' =>$profile->id]);
-    //         $data=ProductReview::updateOrCreate(
-    //             ['customer_id' => $profile->id,'product_id'=>$request->input('product_id')],
-    //             $request->input()
-    //         );
-    //         return ResponseHelper::Out('success',$data,200);
-    //     }
-    //     else{
-    //         return ResponseHelper::Out('fail','Customer profile not exists',200);
-    //     }
+        if($profile){
+            $request->merge(['customer_id' =>$profile->id]);
+            $data=ProductReview::updateOrCreate(
+                ['customer_id' => $profile->id,'product_id'=>$request->input('product_id')],
+                $request->input()
+            );
+            return ResponseHelper::Out('success',$data,200);
+        }
+        else{
+            return ResponseHelper::Out('fail','Customer profile not exists',200);
+        }
 
-    // }
+    }
 
 
 
